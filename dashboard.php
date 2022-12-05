@@ -204,7 +204,8 @@ if ($user->isLoggedIn()) {
                                 </table>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <?php if ($user->data()->accessLevel == 1 || $user->data()->accessLevel == 2) { ?>
+                            <div class="col-md-4">
                             <div class="head clearfix">
                                 <div class="isw-grid"></div>
                                 <h1>Summary Report</h1>
@@ -221,11 +222,6 @@ if ($user->isLoggedIn()) {
                                     </li>
                                 </ul>
                             </div>
-                            <?php if($user->data()->power == 1){
-                                $visits=$override->getNews('visit', 'expected_date', date('Y-m-d'), 'status', 0);
-                            }else {
-                                $visits=$override->get3('visit', 'expected_date', date('Y-m-d'), 'site_id',$user->data()->site_id, 'status', 0);
-                            }?>
                             <div class="block-fluid">
                                 <table cellpadding="0" cellspacing="0" width="100%" class="table">
                                     <thead>
@@ -260,6 +256,7 @@ if ($user->isLoggedIn()) {
                                 </table>
                             </div>
                         </div>
+                        <?php }?>
                     </div>
                 </div>
                 <div class="dr"><span></span></div>
