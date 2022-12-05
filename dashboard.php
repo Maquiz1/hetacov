@@ -77,7 +77,7 @@ if ($user->isLoggedIn()) {
                                 <span class="mChartBar" sparkType="bar" sparkBarColor="white">
                                     <!--5,10,15,20,23,21,25,20,15,10,25,20,10-->
                                 </span>
-                                <a href="#">
+                                <a href="info.php?id=7">
                                     <span class="number"><?=$enrolled?></span>
                                 </a>
                             </div>
