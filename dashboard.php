@@ -60,7 +60,7 @@ if ($user->isLoggedIn()) {
                                 <span class="mChartBar" sparkType="bar" sparkBarColor="white">
                                     <!--130,190,260,230,290,400,340,360,390-->
                                 </span>
-                                <a href="#">
+                                <a href="info.php?id=3">
                                     <span class="number"><?=$screened?></span>
                                 </a>
                             </div>
@@ -125,7 +125,7 @@ if ($user->isLoggedIn()) {
                                 <?= $successMessage ?>
                             </div>
                         <?php } ?>
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                             <div class="head clearfix">
                                 <div class="isw-grid"></div>
                                 <h1>Today Schedule</h1>
@@ -200,6 +200,62 @@ if ($user->isLoggedIn()) {
                                             </div>
                                         </div>
                                         <?php $x++;} ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="head clearfix">
+                                <div class="isw-grid"></div>
+                                <h1>Summary Report</h1>
+                                <ul class="buttons">
+                                    <li><a href="#" class="isw-download"></a></li>
+                                    <li><a href="#" class="isw-attachment"></a></li>
+                                    <li>
+                                        <a href="#" class="isw-settings"></a>
+                                        <ul class="dd-list">
+                                            <li><a href="#"><span class="isw-plus"></span> New document</a></li>
+                                            <li><a href="#"><span class="isw-edit"></span> Edit</a></li>
+                                            <li><a href="#"><span class="isw-delete"></span> Delete</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <?php if($user->data()->power == 1){
+                                $visits=$override->getNews('visit', 'expected_date', date('Y-m-d'), 'status', 0);
+                            }else {
+                                $visits=$override->get3('visit', 'expected_date', date('Y-m-d'), 'site_id',$user->data()->site_id, 'status', 0);
+                            }?>
+                            <div class="block-fluid">
+                                <table cellpadding="0" cellspacing="0" width="100%" class="table">
+                                    <thead>
+                                    <tr>
+                                        <td width="20">Site Name</td>
+                                        <th width="35">Screened</th>
+                                        <th width="35%">Enrolled</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>MNH-MLOGANZIRA</td>
+                                        <td><?=$override->getCount('clients','site_id', 1) ?></td>
+                                        <td><?=$override->countData('clients','site_id', 1, 'enrolled', 1)?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>BUGANDO</td>
+                                        <td><?=$override->getCount('clients','site_id', 2) ?></td>
+                                        <td><?=$override->countData('clients','site_id', 2, 'enrolled', 1)?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>KCMC</td>
+                                        <td><?=$override->getCount('clients','site_id', 3) ?></td>
+                                        <td><?=$override->countData('clients','site_id', 3, 'enrolled', 1)?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>MNH-UPANGA</td>
+                                        <td><?=$override->getCount('clients','site_id', 4) ?></td>
+                                        <td><?=$override->countData('clients','site_id', 4, 'enrolled', 1)?></td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
