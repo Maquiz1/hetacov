@@ -65,18 +65,17 @@ if ($user->data()->accessLevel == 1) {
             </li>
 
             <li class="active">
+                <a href="info.php?id=6" target="_blank">
+                    <span class="isw-download"></span><span class="text">Download Data</span>
+                </a>
+            </li>
+
+            <li class="active">
                 <a href="zebra.php" target="_blank">
                     <span class="isw-print"></span><span class="text">Zebra Print</span>
                 </a>
             </li>
 
-            <?php if($user->data()->power == 1){?>
-                <li class="active">
-                    <a href="zebra.php">
-                        <span class="isw-print"></span><span class="text">Zebra Print</span>
-                    </a>
-                </li>
-            <?php }?>
 
             <li class="openable">
                 <a href="#"><span class="isw-tag"></span><span class="text">Extra</span></a>
@@ -124,11 +123,6 @@ if ($user->data()->accessLevel == 1) {
                     </li>
                 </ul>
             </li>
-<!--            <li class="active">-->
-<!--                <a href="zebra.php" target="_blank">-->
-<!--                    <span class="isw-print"></span><span class="text">Zebra Print</span>-->
-<!--                </a>-->
-<!--            </li>-->
 
             <li class="active">
                 <a href="zebra.php" target="_blank">
