@@ -283,8 +283,7 @@ if ($user->isLoggedIn()) {
             ));
             if ($validate->passed()) {
                 $eligibility=0;
-                if(Input::get('age_18')==1 && Input::get('tr_pcr')==1 && Input::get('hospitalized')==1 &&
-                    Input::get('moderate_severe')==1 && Input::get('peptic_ulcers')==2 && Input::get('consented')==1 && (Input::get('pregnant')==2 || Input::get('pregnant')==3)){
+                if(Input::get('age_18')==1 && Input::get('tr_pcr')==1 && Input::get('moderate_severe')==1 && Input::get('peptic_ulcers')==2 && Input::get('consented')==1 && (Input::get('pregnant')==2 || Input::get('pregnant')==3)){
                     $eligibility=1;
                 }
                 try {
@@ -1640,7 +1639,7 @@ if ($user->isLoggedIn()) {
                                                                         </div>
 
                                                                         <div class="row-form clearfix">
-                                                                            <div class="col-md-8">Does the participant have moderate or severe form of COVID-19?</div>
+                                                                            <div class="col-md-8">Does the participant have mild or moderate or severe form of COVID-19?</div>
                                                                             <div class="col-md-4">
                                                                                 <select name="moderate_severe" style="width: 100%;" required>
                                                                                     <option value="<?=$sc['moderate_severe']?>"><?php if($sc){if($sc['moderate_severe']==1){echo 'Yes';}elseif($sc['moderate_severe']==2){echo 'No';}}else{echo 'Select';}?></option>
