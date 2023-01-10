@@ -466,6 +466,10 @@ if ($user->isLoggedIn()) {
                 $data = $override->getData('site');
                 $filename = 'Sites';
             }
+            elseif (Input::get('screening')){
+                $data = $override->getData('screening');
+                $filename = 'Screening';
+            }
             $user->exportData($data, $filename);
         }
     }
@@ -1864,6 +1868,11 @@ if ($user->isLoggedIn()) {
                                         <td>5</td>
                                         <td>Sites</td>
                                         <td><form method="post"><input type="submit" name="sites" value="Download"></form> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Screening</td>
+                                        <td><form method="post"><input type="submit" name="screening" value="Download"></form> </td>
                                     </tr>
                                     </tbody>
                                 </table>
